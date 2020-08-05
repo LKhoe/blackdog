@@ -1,0 +1,43 @@
+{% extends 'bootstrap/index.html' %}
+
+{% block content %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+</head>
+
+<h1 style="text-align: center">Funções Organizacionais</h1>
+
+<div style="margin: auto; width: 80%;">
+    <a href = "{% url 'organizational_role_add' %}" class="btn btn-success" style="float: right; margin-bottom: 10px; margin-right: 10px;">Criar</a>
+</div>
+
+<div style="margin: auto; width: 80%; padding: 10px;">
+    <table id="table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                {% for column in object_list.cols %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for org_role in object_list.rows %}
+                <tr>
+                    <td>{{ org_role.name }}</td>
+                    <td>
+                        <a href="{% url 'organizational_role_update' org_role.pk %}">Atualizar</a>
+                        <a href="{% url 'organizational_role_delete' org_role.pk %}">Deletar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+$('#table').DataTable();
+</script>
+{% endblock %} 

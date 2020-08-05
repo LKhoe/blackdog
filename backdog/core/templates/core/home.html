@@ -1,0 +1,23 @@
+{% extends 'bootstrap/index.html' %}
+
+{% block content %}
+
+    <a href="{% url 'organization_add' %}">Criar Organização</a>
+    <a href="{% url 'project_add' %}">Criar Projeto</a>
+    <a href="{% url 'project_team_add' %}">Criar Time de Projeto</a>
+    <a href="{% url 'team_purpose_add' %}">Criar Propósito de Time</a>
+    <a href="{% url 'team_member_add' %}">Criar Membro de Time</a>
+    <a href="{% url 'organizational_role_add' %}">Criar Função Organizacional</a>
+    <a href="{% url 'team_membership_add' %}">Criar Team Membership</a>
+
+    <br><br>
+
+    <a href="{% url 'organization_list' %}">Listar Organização</a>
+    <a href="{% url 'project_list' %}">Listar Projeto</a>
+    <a href="{% url 'project_team_list' %}">Listar Times de Projeto</a>
+    <a href="{% url 'team_purpose_list' %}">Listar Propósitos de Time</a>
+    <a href="{% url 'team_member_list' %}">Listar Membros de Time</a>
+    <a href="{% url 'organizational_role_list' %}">Listar Funções Organizacionais</a>
+    <a href="{% url 'team_membership_list' %}">Listar Team Memberships</a>
+
+{% endblock %}

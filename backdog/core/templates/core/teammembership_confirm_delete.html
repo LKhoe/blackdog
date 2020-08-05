@@ -1,0 +1,10 @@
+{% extends 'bootstrap/index.html' %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>Tem certeza que deseja deletar o team membership entre "{{ object.team.name }}" e "{{ object.member.name }}"?</p>
+    <input type="submit" value="Confirm" />
+    <button type='button' onclick="window.location.href={% url 'team_membership_list' %}">No</button>
+</form>
+    <!-- <a href="{% url 'organization_list' %}">No</a> -->
+{% endblock %}

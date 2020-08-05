@@ -1,0 +1,22 @@
+{% extends 'bootstrap/index.html' %}
+
+{% block content %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+</head>
+
+
+<body>
+    <button onclick="window.location.href=window.location.origin">Home</button>
+    <h1>Times Organizacionais</h1>
+    <ul>
+    {% for org_team in object_list %}
+        <li>{{ org_team.name }} - {{ org_team.organization.name }} <a href="{% url 'project_update' org_team.pk %}">Atualizar</a></li>
+    {% empty %}
+        <li>Não há Times Organizacionais cadastrados ainda.</li>
+    {% endfor %}
+    </ul>
+<body>
+{% endblock %} 

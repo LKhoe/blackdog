@@ -1,0 +1,43 @@
+{% extends 'bootstrap/index.html' %}
+
+{% block content %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+</head>
+
+<h1 style="text-align: center">Equipe de projeto</h1>
+
+<div style="margin: auto; width: 80%;">
+    <a href = "{% url 'project_team_add' %}" class="btn btn-success" style="float: right; margin-bottom: 10px; margin-right: 10px;">Criar</a>
+</div>
+
+<div style="margin: auto; width: 80%; padding: 10px;">
+    <table id="table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                {% for column in object_list.cols %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for ProjectTeam in object_list.rows %}
+                <tr>
+                    <td>{{ ProjectTeam.name }}</td>
+                    <td>
+                        <a href="{% url 'projectteam_update' ProjectTeam.pk %}">Atualizar</a>
+                        <a href="{% url 'projectteam_delete' ProjectTeam.pk %}">Deletar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+$('#table').DataTable();
+</script>
+{% endblock %} 

@@ -1,0 +1,9 @@
+{% extends 'bootstrap/index.html' %}
+
+{% block content %}  
+<form action="" method="post">{% csrf_token %}
+    <p>Tem certeza que deseja deletar a organização "{{ object.name }}"?</p>
+    <input type="submit" value="Confirm" />
+    <button type='button' onclick="window.location.href={% url 'organization_list' %}">No</button>
+</form>
+{% endblock %}
